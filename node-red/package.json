@@ -1,0 +1,10 @@
+{
+  "name": "node-red-project",
+  "description": "A Node-RED Project",
+  "version": "0.0.1",
+  "dependencies": {
+    "node-red-contrib-boolean-logic": "0.0.3",
+    "node-red-contrib-google-home-notify": "0.0.6",
+    "node-red-contrib-traffic": "~0.2.1"
+  }
+}

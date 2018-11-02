@@ -1,0 +1,58 @@
+#debug = true
+
+logLevel = "INFO" #DEBUG, INFO, WARN, ERROR, FATAL, PANIC
+InsecureSkipVerify = true 
+defaultEntryPoints = ["https", "http"]
+
+# [accesslog]
+
+[ping]
+  entryPoint = "traefik"
+
+# WEB interface of Traefik - it will show web page with overview of frontend and backend configurations 
+[api]
+  entryPoint = "traefik"
+  dashboard = true
+
+# Force HTTPS
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+  [entryPoints.traefik]
+  address = ":8080"
+    [entryPoints.traefik.auth.basic]
+    # get md5 from htpasswd or http://www.htaccesstools.com/htpasswd-generator/
+    usersFile = "/shared/.htpasswd"
+
+[file]
+  watch = true
+  filename = "/etc/traefik/traefik.toml"
+
+# Let's encrypt configuration
+[acme]
+email = "kverhaar@gmail.com" #any email id will work
+storage="/etc/traefik/acme/acme.json"
+entryPoint = "https"
+acmeLogging=true 
+onDemand = false #create certificate when container is created
+[acme.dnsChallenge]
+  provider = "cloudflare"
+  delayBeforeCheck = 0
+[[acme.domains]]
+   main = "deverhaartjes.nl"
+[[acme.domains]]
+   main = "*.deverhaartjes.nl"
+   
+# Connection to docker host system (docker.sock)
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+domain = "deverhaartjes.nl"
+watch = true
+# This will hide all docker containers that don't have explicitly  
+# set label to "enable"
+exposedbydefault = false

@@ -1,0 +1,49 @@
+hello_world:
+  module: hello
+  class: HelloWorld
+
+Occupancy Simulator:
+  module: occusim
+  class: OccuSim
+  log: 1
+  notify: 1
+  enable: input_boolean.vacation,on
+  dump_times: 1
+  #reset_time: 02:00:00
+
+  step_morning_name: Morning
+  step_morning_start: 05:30:00
+  step_morning_end: 06:00:00
+  step_morning_on_1: scene.diner
+
+  step_day_name: Day
+  step_day_start: 08:00:00
+  step_day_on_1: scene.licht_uit_alles
+  step_day_end: 08:30:00
+
+  step_evening_name: Evening
+  step_evening_start: sunset - 00:45:00
+  step_evening_on_1: scene.diner
+
+  step_downstairs_off_name: Bedtime
+  step_downstairs_off_start: '22:00:00'
+  step_downstairs_off_end: '23:00:00'
+  step_downstairs_off_off_1: scene.licht_uit_alles
+
+  random_hal_name: Evening Hal
+  random_hal_start: Evening
+  random_hal_end: Bedtime
+  random_hal_minduration: 00:01:00
+  random_hal_maxduration: 00:05:00
+  random_hal_number: 5
+  random_hal_on_1: light.hal_plafondlamp_level
+  random_hal_off_1: light.hal_plafondlamp_level
+
+  random_werkkamer_name: Evening Werkkamer
+  random_werkkamer_start: Evening
+  random_werkkamer_end: Bedtime
+  random_werkkamer_minduration: 00:01:00
+  random_werkkamer_maxduration: 00:05:00
+  random_werkkamer_number: 5
+  random_werkkamer_on_1: light.werkkamer_plafondlamp_level
+  random_werkkamer_off_1: light.werkkamer_plafondlamp_level

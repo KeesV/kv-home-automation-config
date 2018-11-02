@@ -1,0 +1,47 @@
+##
+## Main arguments, all optional
+##
+title: Main Panel
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+
+layout:
+    - clock(2x1)
+    - scene.borrel,  scene.film_kijken,       weather(2x2), device_tracker.iphonevebruiker,  device_tracker.iphonevankees
+    - scene.diner,   scene.licht_uit_beneden,              sensor.woonkamer_humidity,       sensor.woonkamer_temperature
+    - spacer(2x1),                            alarm(2x2),  sensor.woonkamer_light,          sensor.eethoek_light
+
+clock:
+    widget_type: clock
+
+weather:
+    widget_type: weather
+    units: "&deg;C"
+    title: Vandaag
+    show_foreacast: 1
+    prefer_icons: 1
+    forecast_title: Morgen
+    sensors:
+        icon: sensor.buienradar_symbol
+        temperature: sensor.buienradar_temperature
+        humidity: sensor.buienradar_humidity
+        pressure: sensor.buienradar_pressure
+        wind_speed: sensor.buienradar_wind_speed
+        forecast_icon: sensor.buienradar_forecast_symbol_1d
+        forecast_temperature_min: sensor.buienradar_forecast_minimum_temperature_1d
+        forecast_temperature_max: sensor.buienradar_forecast_temperature_1d
+        forecast_precip_probability: sensor.buienradar_forecast_rainchance_1d
+
+alarm:
+    widget_type: alarm
+    entity: alarm_control_panel.alarm

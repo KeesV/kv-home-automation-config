@@ -1,0 +1,7 @@
+__pycache__
+appdaemon/compiled
+mosquitto/password
+node-red/*.json.backup
+node-red/*_cred.json
+node-red/node_modules
+sickrage
