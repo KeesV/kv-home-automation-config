@@ -5,3 +5,5 @@ node-red/*.json.backup
 node-red/*_cred.json
 node-red/node_modules
 sickrage
+pihole
+motioneye/thread-1.conf
