@@ -31,6 +31,10 @@ $SCRIPTDIR/backup_influxdbcontainer.sh influxdb $BASEDIR/src/influxdb
 mkdir -p $BASEDIR/src/mosquitto
 cp -R $BASESRCDIR/mosquitto $BASEDIR/src/mosquitto
 
+# Motioneye
+mkdir -p $BASEDIR/src/motioneye
+cp -R $BASESRCDIR/motioneye $BASEDIR/src/motioneye
+
 # Portainer
 mkdir -p $BASEDIR/src/portainer
 cp -R $BASESRCDIR/portainer $BASEDIR/src/portainer
@@ -42,6 +46,10 @@ cp -R $BASESRCDIR/portainer $BASEDIR/src/portainer
 mkdir -p $BASEDIR/src/sabnzbd
 cp -R $BASESRCDIR/sabnzbd $BASEDIR/src/sabnzbd
 
+# Shared stuff
+mkdir -p $BASEDIR/src/shared
+cp -R $BASESRCDIR/shared $BASEDIR/src/shared
+
 # SickChill
 mkdir -p $BASEDIR/src/sickchill
 cp -R $BASESRCDIR/sickchill $BASEDIR/src/sickchill
@@ -49,6 +57,10 @@ cp -R $BASESRCDIR/sickchill $BASEDIR/src/sickchill
 # Traefik
 mkdir -p $BASEDIR/src/traefik
 cp -R $BASESRCDIR/traefik $BASEDIR/src/traefik
+
+# Zigbee2mqtt
+mkdir -p $BASEDIR/src/zigbee2mqtt
+cp -R $BASESRCDIR/zigbee2mqtt $BASEDIR/src/zigbee2mqtt
 
 # echo "Creating tar file..."
 TIMESTAMP=`/bin/date +%Y%m%d%H%M%S`
